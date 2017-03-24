@@ -1,6 +1,24 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+# Check if Oh My Zsh is installed
+if [[ ! -e $ZSH ]]; then
+    mkdir -p $ZSH
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+elif [[ ! -d $ZSH ]]; then
+    echo "$ZSH already exists but is not a directory" 1>&2
+fi
+
+ZSH_POWERLEVEL9K=$ZSH/custom/themes/powerlevel9k
+
+# Check if Powerlevel9k is installed
+if [[ ! -e $ZSH_POWERLEVEL9K ]]; then
+    mkdir -p $ZSH_POWERLEVEL9K
+    git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+elif [[ ! -d $ZSH_POWERLEVEL9K ]]; then
+    echo "$ZSH_POWERLEVEL9K already exists but is not a directory" 1>&2
+fi
+
 # Power Line configuration
 POWERLEVEL9K_MODE='awesome-patched'
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
@@ -9,8 +27,6 @@ POWERLEVEL9KRIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history
 
 # Aliases
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl --new-window $@'
-
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -56,7 +72,6 @@ plugins=(git ruby mercurial mvn npm osx rbenv screen sublime svn rbenv rand-quot
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/local/share/npm/bin:/usr/local/bin:/usr/bin:/bin:$PATH:
 export SBT_OPTS="-Xmx2G -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xss2M"
 
 # Plugins
