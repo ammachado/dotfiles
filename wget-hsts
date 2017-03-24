@@ -2,4 +2,6 @@
 # Edit at your own risk.
 # <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
 raw.githubusercontent.com	0	0	1457400674	31536000
+github.com	0	1	1490330538	31536000
 curl.haxx.se	0	1	1487197694	31536000
+codeload.github.com	0	0	1490330539	31536000
