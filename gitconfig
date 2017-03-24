@@ -1,0 +1,35 @@
+[user]
+	name = Adriano Marcondes Machado
+	email = adriano.m.machado@hotmail.com
+[core]
+	excludesfile = /Users/ammachado/.gitignore_global
+	autocrlf = input
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[merge]
+	tool = p4merge
+[mergetool]
+	prompt = false
+	keepBackup = false
+[mergetool "p4merge"]
+	path = /usr/local/bin/p4merge
+[color]
+	ui = auto
+[alias]
+	aliases = config --get-regexp 'alias.*'
+	amend = commit --amend -a
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+[credential]
+	helper = osxkeychain
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[help]
+	autocorrect = 1
+[rebase]
+	autostash = true

@@ -1,0 +1,12 @@
+[extensions]
+color =
+pager =
+graphlog =
+progress =
+mq =
+rebase =
+histedit =
+share =
+
+[hostsecurity]
+bitbucket.org:fingerprints = sha1:3F:D3:C5:17:23:3C:CD:F5:2D:17:76:06:93:7E:EE:97:42:21:14:AA
